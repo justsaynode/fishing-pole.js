@@ -11,14 +11,19 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 import fetch from 'node-fetch';
 
 const sendRequest = async function (
-    requestType = 'GET',
-    requestBody = null,
-    url = 'localhost',
-    endpoint = '/api/status',
-    port = 5000,
-    useHTTPS = false
+    options = {
+        requestType: 'GET',
+        requestBody: null,
+        url: 'localhost',
+        endpoint: '/api/status',
+        port: 5000,
+        useHTTPS: false,
+    }
 ) {
-    const options = {
+    const { requestType, requestBody, url, endpoint, useHTTPS } = options;
+    let { port } = options;
+
+    const fetchOptions = {
         method: requestType,
         body: requestBody,
         headers: { 'Content-Type': 'application/json' },
@@ -37,7 +42,7 @@ const sendRequest = async function (
     }${url}${port}${endpoint}`;
 
     try {
-        const response = await fetch(builtURL, options);
+        const response = await fetch(builtURL, fetchOptions);
         const status = response.status;
         const responseText = await response.text();
 
@@ -65,25 +70,26 @@ const notifyUser = function (message) {
 };
 
 const getAPIStatus = async function (
-    requestType = 'GET',
-    requestBody = null,
-    url = 'localhost',
-    endpoint = '/api/status',
-    port = 5000,
-    useHTTPS = false
+    options = {
+        requestType: 'GET',
+        requestBody: null,
+        url: 'localhost',
+        endpoint: '/api/status',
+        port: 5000,
+        useHTTPS: false,
+        notify: false,
+    }
 ) {
-    const response = await sendRequest(
-        requestType,
-        requestBody,
-        url,
-        endpoint,
-        port,
-        useHTTPS
-    );
+    const { notify } = options;
+    const response = await sendRequest(options);
 
-    const message = `API at ${response.url} responded with status code ${response.status}`;
+    if (notify) {
+        const message = `API at ${response.url} responded with status code ${response.status}`;
 
-    notifyUser(message);
+        notifyUser(message);
+    }
+
+    return response;
 };
 
-export { getAPIStatus };
+export { getAPIStatus, notifyUser };
