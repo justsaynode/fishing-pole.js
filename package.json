@@ -1,0 +1,32 @@
+{
+    "name": "fishing-pole",
+    "version": "0.0.1",
+    "description": "Manage your API connections",
+    "main": "fishing-pole.mjs",
+    "scripts": {
+        "test": "node fishing-pole.mjs"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/justsaynode/fishing-pole.js.git"
+    },
+    "keywords": [
+        "API",
+        "manager",
+        "electron"
+    ],
+    "author": "Just Say Node",
+    "license": "GPL-3.0-or-later",
+    "bugs": {
+        "url": "https://github.com/justsaynode/fishing-pole.js/issues"
+    },
+    "homepage": "https://github.com/justsaynode/fishing-pole.js#readme",
+    "dependencies": {
+        "node-fetch": "^3.2.4",
+        "node-notifier": "^10.0.1"
+    },
+    "devDependencies": {
+        "electron": "^18.2.3",
+        "express": "^4.18.1"
+    }
+}
