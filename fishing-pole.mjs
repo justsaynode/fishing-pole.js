@@ -1,4 +1,4 @@
-import { pollAPI, checkPollingStatus } from './services/poll-api.mjs';
+import { pollAPI, checkPollingStatus } from './backend/services/poll-api.mjs';
 
 const main = async function () {
     await pollAPI(
