@@ -2,9 +2,9 @@
     "name": "fishing-pole",
     "version": "0.0.1",
     "description": "Manage your API connections",
-    "main": "fishing-pole.mjs",
+    "main": "fishing-pole.js",
     "scripts": {
-        "test": "node fishing-pole.mjs",
+        "test": "node fishing-pole.js",
         "start": "electron ."
     },
     "repository": {

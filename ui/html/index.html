@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="default-src 'self'; script-src 'self'"
+        />
+        <meta
+            http-equiv="X-Content-Security-Policy"
+            content="default-src 'self'; script-src 'self'"
+        />
+        <title>Fishing Pole JS</title>
+        <link rel="stylesheet" href="../css/main.css" />
+        <script src="../js/addListener.js"></script>
+        <script src="../js/preload.js"></script>
+    </head>
+    <body>
+        <h1>API Management</h1>
+        <!-- Add new listener section -->
+        <div id="add-new-listener">
+            <h2>Add New Listener</h2>
+            <input type="text" name="api-url" id="api-url" />
+            <label for="api-url">URL</label><br />
+            <input type="text" name="api-port" id="api-port" />
+            <label for="api-port">Port</label><br />
+            <input type="button" value="Add Listener" id="btnAddListener" />
+        </div>
+
+        <!-- List of current API statuses -->
+        <div id="current-listeners"></div>
+    </body>
+</html>

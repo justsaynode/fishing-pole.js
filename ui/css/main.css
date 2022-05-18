@@ -1,0 +1,19 @@
+.circle {
+    width: 2rem;
+    height: 2rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.red {
+    background: red;
+}
+
+.green {
+    background: limegreen;
+}
+
+.orange {
+    background: orange;
+}
